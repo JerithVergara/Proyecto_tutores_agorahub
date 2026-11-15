@@ -40,7 +40,11 @@ export const sendEmail = async (input: EmailInput): Promise<boolean> => {
   });
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Resend ${response.status}: ${error.slice(0, 500)}`);
+    const senderGuidance =
+      response.status === 403
+        ? ' Verifica un dominio en Resend y configura EMAIL_FROM con un remitente de ese dominio.'
+        : '';
+    throw new Error(`Resend ${response.status}: ${error.slice(0, 500)}${senderGuidance}`);
   }
   return true;
 };
@@ -49,27 +53,6 @@ const bestEffort = (input: EmailInput): void => {
   void sendEmail(input).catch((error: unknown) =>
     console.error('email_send_failed', error instanceof Error ? error.message : 'unknown error'),
   );
-};
-
-export const sendWelcomeEmail = async (user: { email: string; fullName: string; role: string }): Promise<boolean> => {
-  const name = escapeHtml(user.fullName);
-  const roleLabel = user.role === 'tutor' ? 'profesor/tutor' : 'estudiante';
-  const loginLink = config.appUrl
-    ? `<p><a href="${config.appUrl}/pages/login.html" style="color:#2563eb;font-weight:700">Iniciar sesión en ÁgoraHub</a></p>`
-    : '<p>Entra a la dirección pública de ÁgoraHub para iniciar sesión.</p>';
-  const loginText = config.appUrl
-    ? ` Inicia sesión en ${config.appUrl}/pages/login.html.`
-    : ' Entra a la dirección pública de ÁgoraHub para iniciar sesión.';
-  return sendEmail({
-    to: user.email,
-    subject: 'Tu cuenta de ÁgoraHub está lista',
-    html: shell(
-      'Tu cuenta está lista',
-      `<p>Hola ${name},</p><p>Tu cuenta de ${roleLabel} fue creada correctamente. Ya puedes entrar y completar tu información desde <strong>Mi cuenta</strong>.</p>${loginLink}`,
-    ),
-    text: `Hola ${user.fullName}. Tu cuenta de ${roleLabel} fue creada correctamente.${loginText}`,
-    idempotencyKey: `welcome-${user.email.toLowerCase()}`,
-  });
 };
 
 export const sendRequestCreatedEmail = (

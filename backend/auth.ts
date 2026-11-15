@@ -1,7 +1,6 @@
 import type { IncomingMessage } from 'node:http';
 import { db, supabaseAdmin, supabaseAuth } from './supabase.js';
 import { config } from './config.js';
-import { sendWelcomeEmail } from './email.js';
 import { bearerToken, HttpError, optionalString, requireString } from './http.js';
 
 export type Role = 'student' | 'tutor' | 'admin';
@@ -233,12 +232,6 @@ export const register = async (body: Record<string, unknown>) => {
   }
 
   const user = await profileFor(userId, email);
-  let welcomeEmailSent = false;
-  try {
-    welcomeEmailSent = await sendWelcomeEmail(user);
-  } catch (error) {
-    console.error('welcome_email_send_failed', error instanceof Error ? error.message : 'unknown error');
-  }
   const { data: sessionData } = await supabaseAuth.auth.signInWithPassword({ email, password });
   return {
     user,
@@ -246,12 +239,9 @@ export const register = async (body: Record<string, unknown>) => {
     refreshToken: sessionData.session?.refresh_token,
     expiresAt: sessionData.session?.expires_at,
     requiresEmailConfirmation: !sessionData.session,
-    welcomeEmailSent,
-    message: !welcomeEmailSent
-      ? 'La cuenta se creó correctamente, pero no se pudo enviar el correo de bienvenida. Revisa la configuración de correo.'
-      : sessionData.session
-        ? 'Cuenta creada correctamente.'
-        : 'Cuenta creada. Revisa tu correo para confirmar el acceso.',
+    message: sessionData.session
+      ? 'Cuenta creada correctamente.'
+      : 'Cuenta creada. Revisa tu correo para confirmar el acceso.',
   };
 };
 

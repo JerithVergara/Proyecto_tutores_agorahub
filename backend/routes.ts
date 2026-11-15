@@ -1222,9 +1222,9 @@ export const handleApi = async (req: IncomingMessage, res: ServerResponse): Prom
       const endTime = requireString(body.endTime, 'endTime', 4, 10);
       if (endTime <= startTime)
         throw new HttpError(400, 'INVALID_TIME_RANGE', 'La hora final debe ser posterior a la hora inicial.');
-      const modality = requireString(body.modality, 'modality', 5, 20);
-      if (!['online', 'in_person'].includes(modality))
-        throw new HttpError(400, 'INVALID_MODALITY', 'La modalidad debe ser virtual o presencial.');
+      const modality = requireString(body.modality, 'modality', 4, 20);
+      if (!['online', 'in_person', 'both'].includes(modality))
+        throw new HttpError(400, 'INVALID_MODALITY', 'La modalidad seleccionada no es válida.');
       const { data, error } = await db
         .from('tutor_availability_rules')
         .update({ day_of_week: dayOfWeek, start_time: startTime, end_time: endTime, modality })
