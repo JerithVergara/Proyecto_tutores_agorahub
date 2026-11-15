@@ -786,10 +786,10 @@
           localStorage.setItem('tutoreshub_refresh_token', result.refreshToken || '');
           localStorage.setItem('tutoreshub_user', JSON.stringify(result.user || {}));
           const accountPage = result.user?.role === 'tutor' ? 'mi-cuenta-tutor.html' : 'mi-cuenta-estudiante.html';
-          window.location.href = `${accountPage}?welcomeEmail=${result.welcomeEmailSent ? 'sent' : 'failed'}`;
+          window.location.href = `${accountPage}?registered=1`;
         } else {
           const accountPage = result.user?.role === 'tutor' ? 'mi-cuenta-tutor.html' : 'mi-cuenta-estudiante.html';
-          window.location.href = `login.html?registered=1&welcomeEmail=${result.welcomeEmailSent ? 'sent' : 'failed'}&email=${encodeURIComponent(result.user?.email || '')}&next=${encodeURIComponent(accountPage)}`;
+          window.location.href = `login.html?registered=1&requiresEmailConfirmation=${result.requiresEmailConfirmation ? '1' : '0'}&email=${encodeURIComponent(result.user?.email || '')}&next=${encodeURIComponent(accountPage)}`;
         }
       } catch (error) {
         feedback(form, error.message);
@@ -978,17 +978,10 @@
                 profile.verification_status === 'verified' ? 'Perfil verificado' : 'Verificación pendiente';
           }
           const form = accountPage.querySelector('[data-account-form]');
-          const welcomeEmailStatus = new URLSearchParams(window.location.search).get('welcomeEmail');
-          if (form && welcomeEmailStatus) {
-            feedback(
-              form,
-              welcomeEmailStatus === 'sent'
-                ? 'Cuenta creada y correo de bienvenida enviado.'
-                : 'Cuenta creada, pero no se pudo enviar el correo de bienvenida. Revisa la configuración del servicio de correo.',
-              welcomeEmailStatus !== 'sent',
-            );
-            const params = new URLSearchParams(window.location.search);
-            params.delete('welcomeEmail');
+          const params = new URLSearchParams(window.location.search);
+          if (form && params.get('registered') === '1') {
+            feedback(form, 'Cuenta creada correctamente.', false);
+            params.delete('registered');
             const queryString = params.toString();
             history.replaceState(
               null,
@@ -1522,6 +1515,8 @@
     let selectedRule = null;
     let tutorHourlyRate = 0;
     const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const modalityLabel = (modality) =>
+      ({ online: 'Virtual', in_person: 'Presencial', both: 'Virtual y presencial' })[modality] || 'No especificada';
     const form = reservationPage.querySelector('[data-api-form="request"]');
     const blockSelect = form?.querySelector('[data-availability-select]');
     const educationLevelSelect = form?.querySelector('[name="educationLevelId"]');
@@ -1712,7 +1707,7 @@
             ? reservationAvailability
                 .map(
                   (rule) =>
-                    `<option value="${escapeHtml(rule.id)}">${escapeHtml(days[Number(rule.day_of_week)])} · ${escapeHtml(String(rule.start_time).slice(0, 5))} – ${escapeHtml(String(rule.end_time).slice(0, 5))} · ${rule.modality === 'in_person' ? 'Presencial' : 'Virtual'}</option>`,
+                    `<option value="${escapeHtml(rule.id)}">${escapeHtml(days[Number(rule.day_of_week)])} · ${escapeHtml(String(rule.start_time).slice(0, 5))} – ${escapeHtml(String(rule.end_time).slice(0, 5))} · ${escapeHtml(modalityLabel(rule.modality))}</option>`,
                 )
                 .join('')
             : '<option value="">El profesor aún no tiene bloques disponibles</option>';
@@ -1729,6 +1724,8 @@
   const availabilityPage = document.querySelector('[data-availability-page]');
   if (availabilityPage) {
     const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const modalityLabel = (modality) =>
+      ({ online: 'Virtual', in_person: 'Presencial', both: 'Virtual y presencial' })[modality] || 'No especificada';
     const calendar = availabilityPage.querySelector('[data-availability-calendar]');
     const list = availabilityPage.querySelector('[data-availability-list]');
     const count = availabilityPage.querySelector('[data-availability-count]');
@@ -1827,13 +1824,12 @@
         if (node) node.value = nextValue;
       };
       set('[name="dayOfWeek"]', String(item.day_of_week));
-      set('[name="modality"]', item.modality === 'in_person' ? 'in_person' : 'online');
+      set('[name="modality"]', item.modality);
       set('[name="startTime"]', String(item.start_time).slice(0, 5));
       set('[name="endTime"]', String(item.end_time).slice(0, 5));
     };
     const showViewModal = (item) => {
       selectedId = item.id;
-      const modality = item.modality === 'in_person' ? 'Presencial' : 'Virtual';
       const setText = (selector, text) => {
         const node = viewModal?.querySelector(selector);
         if (node) node.textContent = text;
@@ -1841,7 +1837,7 @@
       setText('[data-modal-title]', `Horario del ${days[Number(item.day_of_week)] || 'día'}`);
       setText('[data-modal-day]', days[Number(item.day_of_week)] || 'Día');
       setText('[data-modal-time]', `${formatTime(item.start_time)} – ${formatTime(item.end_time)}`);
-      setText('[data-modal-modality]', modality);
+      setText('[data-modal-modality]', modalityLabel(item.modality));
       openModal(viewModal);
     };
     const showEditModal = (item) => {
@@ -1955,7 +1951,7 @@
               const height = Math.max(5, ((itemEnd - itemStart) / rangeMinutes) * 100);
               if (segment.type === 'occupied')
                 return `<div class="availability-calendar-card is-occupied" style="top:${top}%;height:${height}%"><strong>Ocupada</strong><span>${escapeHtml(formatTime(`${String(Math.floor(itemStart / 60)).padStart(2, '0')}:${String(itemStart % 60).padStart(2, '0')}`))} – ${escapeHtml(formatTime(`${String(Math.floor(itemEnd / 60)).padStart(2, '0')}:${String(itemEnd % 60).padStart(2, '0')}`))}</span><small>Tutoría asignada</small></div>`;
-              return `<button type="button" class="availability-calendar-card" style="top:${top}%;height:${height}%" data-open-view="${escapeHtml(segment.item.id)}"><strong>Disponible</strong><span>${escapeHtml(formatTime(`${String(Math.floor(itemStart / 60)).padStart(2, '0')}:${String(itemStart % 60).padStart(2, '0')}`))} – ${escapeHtml(formatTime(`${String(Math.floor(itemEnd / 60)).padStart(2, '0')}:${String(itemEnd % 60).padStart(2, '0')}`))}</span><small>${segment.item.modality === 'online' ? 'Virtual' : 'Presencial'}</small></button>`;
+              return `<button type="button" class="availability-calendar-card" style="top:${top}%;height:${height}%" data-open-view="${escapeHtml(segment.item.id)}"><strong>Disponible</strong><span>${escapeHtml(formatTime(`${String(Math.floor(itemStart / 60)).padStart(2, '0')}:${String(itemStart % 60).padStart(2, '0')}`))} – ${escapeHtml(formatTime(`${String(Math.floor(itemEnd / 60)).padStart(2, '0')}:${String(itemEnd % 60).padStart(2, '0')}`))}</span><small>${escapeHtml(modalityLabel(segment.item.modality))}</small></button>`;
             })
             .join('');
           return `<div class="availability-calendar-day" style="--calendar-height:${rows * slotHeight}px"><div class="availability-calendar-lines" style="--calendar-rows:${rows}"></div>${cards || '<span class="availability-empty-day">Sin horario</span>'}</div>`;
@@ -1975,7 +1971,7 @@
         ? availabilityItems
             .map(
               (item) =>
-                `<div class="list-item availability-saved-row"><span class="status success">${escapeHtml(days[Number(item.day_of_week)] || 'Día')}</span><strong>${escapeHtml(formatTime(item.start_time))} – ${escapeHtml(formatTime(item.end_time))}</strong><span class="muted small">${item.modality === 'online' ? 'Virtual' : 'Presencial'}</span><span class="row availability-actions"><button class="btn btn-ghost btn-sm" type="button" data-open-edit="${escapeHtml(item.id)}">Editar</button><button class="btn btn-danger btn-sm" type="button" data-open-delete="${escapeHtml(item.id)}">Eliminar</button></span></div>`,
+                `<div class="list-item availability-saved-row"><span class="status success">${escapeHtml(days[Number(item.day_of_week)] || 'Día')}</span><strong>${escapeHtml(formatTime(item.start_time))} – ${escapeHtml(formatTime(item.end_time))}</strong><span class="muted small">${escapeHtml(modalityLabel(item.modality))}</span><span class="row availability-actions"><button class="btn btn-ghost btn-sm" type="button" data-open-edit="${escapeHtml(item.id)}">Editar</button><button class="btn btn-danger btn-sm" type="button" data-open-delete="${escapeHtml(item.id)}">Eliminar</button></span></div>`,
             )
             .join('')
         : '<div class="card ghost" style="text-align:center;padding:32px 16px"><p class="muted">Aún no tienes horarios guardados.</p></div>';
@@ -2047,7 +2043,6 @@
     });
     editModal?.querySelector('[data-edit-modal-close]')?.addEventListener('click', () => closeModal(editModal));
     editModal?.querySelector('[data-edit-modal-cancel]')?.addEventListener('click', () => closeModal(editModal));
-    deleteModal?.querySelector('[data-delete-modal-close]')?.addEventListener('click', () => closeModal(deleteModal));
     deleteModal?.querySelector('[data-delete-modal-cancel]')?.addEventListener('click', () => closeModal(deleteModal));
     deleteModal?.querySelector('[data-delete-modal-confirm]')?.addEventListener('click', deleteSelected);
     [viewModal, editModal, deleteModal].forEach((modal) =>
@@ -2731,9 +2726,9 @@
       notice.className = 'lead';
       notice.style.color = '#087552';
       notice.textContent =
-        query.get('welcomeEmail') === 'failed'
-          ? 'Tu cuenta fue creada, pero no se pudo enviar el correo de bienvenida. Revisa la configuración de correo y confirma tu dirección si Supabase lo solicita.'
-          : 'Tu cuenta fue creada y el correo de bienvenida fue enviado. Confirma tu correo si Supabase lo solicita y luego inicia sesión.';
+        query.get('requiresEmailConfirmation') === '1'
+          ? 'Tu cuenta fue creada. Confirma tu correo para activar el acceso y luego inicia sesión.'
+          : 'Tu cuenta fue creada correctamente. Ya puedes iniciar sesión.';
       loginHeading.insertAdjacentElement('afterend', notice);
       const emailField = document.querySelector('[name="email"]');
       if (emailField && query.get('email')) emailField.value = query.get('email');
