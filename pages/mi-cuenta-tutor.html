@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mi cuenta de profesor · ÁgoraHub" />
+    <title>Mi cuenta · Profesor · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir al inicio"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Profesor</div>
+          <nav class="side-nav">
+            <a href="dashboard-tutor.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10Z" /></svg></span
+              >Resumen</a
+            ><a href="radar-solicitudes.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8" />
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 4V2M20 12h2M12 20v2M4 12H2" /></svg></span
+              >Radar de solicitudes</a
+            ><a href="clases-impartidas.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8.5" />
+                  <path d="M12 7v5l3 2" /></svg></span
+              >Mis clases</a
+            ><a href="disponibilidad.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4.5" width="18" height="16" rx="2" />
+                  <path d="M7 2.5v4M17 2.5v4M3 9h18M7 13h.01M12 13h.01M17 13h.01M7 17h.01M12 17h.01" /></svg></span
+              >Disponibilidad</a
+            ><a href="chat.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 5.5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 3v-3.2a2 2 0 0 1-2-1.8v-8a2 2 0 0 1 2-2Z" />
+                  <path d="M8 11.5h.01M12 11.5h.01M16 11.5h.01" /></svg></span
+              >Chat</a
+            ><a class="active" href="mi-cuenta-tutor.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3.5" />
+                  <path d="M5 20c.8-3.2 3.1-5 7-5s6.2 1.8 7 5" /></svg></span
+              >Mi cuenta</a
+            >
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar purple" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Profesor</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="radar-solicitudes.html" aria-label="Ver solicitudes">⌁</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar purple" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-account-page="tutor">
+          <div class="eyebrow">Cuenta · Profesor</div>
+          <div class="page-heading">
+            <div>
+              <h1>Mi cuenta</h1>
+              <p class="lead">Administra tus datos personales y tu oferta profesional.</p>
+            </div>
+            <a class="btn btn-secondary" href="dashboard-tutor.html">← Volver al inicio</a>
+          </div>
+          <div class="grid grid-sidebar">
+            <section class="card">
+              <div class="row">
+                <span class="avatar lg purple" data-user-initials>••</span>
+                <div>
+                  <h2 data-user-name>Cargando…</h2>
+                  <p class="muted small" data-user-email>Consultando correo…</p>
+                  <span class="status info" data-profile-status>Perfil profesional</span>
+                </div>
+              </div>
+              <div class="avatar-upload" data-avatar-upload>
+                <label class="avatar-upload-label" for="account-tutor-avatar">Foto de perfil</label>
+                <div class="row">
+                  <input
+                    id="account-tutor-avatar"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    data-avatar-input
+                  /><button class="btn btn-ghost btn-sm" type="button" data-avatar-remove>Eliminar foto</button>
+                </div>
+                <span class="hint">JPG, PNG o WebP · máximo 300 KB · se optimiza a 400 × 400 px.</span>
+                <p class="hint" data-avatar-feedback></p>
+              </div>
+              <hr class="divider" />
+              <form class="stack" data-account-form>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="account-tutor-name">Nombre completo</label
+                    ><input
+                      id="account-tutor-name"
+                      name="fullName"
+                      type="text"
+                      pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü ]{2,120}"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="account-tutor-phone">Celular</label
+                    ><input
+                      id="account-tutor-phone"
+                      name="phone"
+                      type="tel"
+                      inputmode="tel"
+                      pattern="[+0-9 ()-]{7,30}"
+                      required
+                    />
+                  </div>
+                  <div class="field full">
+                    <label for="account-tutor-email">Correo electrónico</label
+                    ><input id="account-tutor-email" type="email" readonly />
+                  </div>
+                  <div class="field full">
+                    <label for="account-tutor-title">Título o materia principal</label
+                    ><input
+                      id="account-tutor-title"
+                      name="professionalTitle"
+                      type="text"
+                      minlength="2"
+                      maxlength="120"
+                      required
+                    />
+                  </div>
+                  <div class="field full">
+                    <label for="account-tutor-bio">Presentación profesional</label
+                    ><textarea id="account-tutor-bio" name="bio" minlength="20" maxlength="1000" required></textarea>
+                  </div>
+                  <div class="field">
+                    <label for="account-tutor-area">Área geográfica</label
+                    ><input
+                      id="account-tutor-area"
+                      name="serviceArea"
+                      maxlength="160"
+                      placeholder="Ciudad o zona para sesiones presenciales"
+                    />
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+              </form>
+            </section>
+            <aside class="stack">
+              <section class="card soft-blue">
+                <span class="tag">Perfil público</span>
+                <h2 style="margin-top: 12px">La información guardada aparecerá cuando un estudiante te busque.</h2>
+                <p class="muted">Configura también tu disponibilidad para poder recibir solicitudes compatibles.</p>
+                <a class="btn btn-secondary" href="disponibilidad.html">Configurar disponibilidad</a>
+              </section>
+              <section class="card">
+                <h2>Vista pública</h2>
+                <p class="muted small">Revisa cómo se muestra tu perfil a los estudiantes.</p>
+                <button class="btn btn-secondary btn-block" type="button" data-open-public-profile>
+                  Ver perfil público
+                </button>
+              </section>
+            </aside>
+          </div>
+          <section class="grid grid-sidebar" style="margin-top: 24px">
+            <section class="card" data-subject-manager>
+              <div class="row-between">
+                <div>
+                  <h2>Materias que impartes</h2>
+                  <p class="muted small">
+                    Elige una materia existente o crea una nueva. La tarifa es propia de tu perfil; el nombre y la
+                    descripción pertenecen al catálogo compartido.
+                  </p>
+                </div>
+                <span class="status info" data-subject-count>0 materias</span>
+              </div>
+              <form class="form-grid" data-subject-form style="margin-top: 16px">
+                <input type="hidden" name="subjectId" />
+                <div class="field">
+                  <label for="subject-name">Materia</label
+                  ><input
+                    id="subject-name"
+                    name="name"
+                    list="subject-options"
+                    minlength="2"
+                    maxlength="100"
+                    placeholder="Ej. Estadística"
+                    required
+                  /><datalist id="subject-options"></datalist>
+                </div>
+                <div class="field">
+                  <label for="subject-rate">Tarifa por hora (USD)</label
+                  ><input id="subject-rate" name="hourlyRate" type="number" min="0" step="0.01" placeholder="35.00" />
+                </div>
+                <div class="field full">
+                  <label for="subject-description">Descripción (opcional)</label
+                  ><input
+                    id="subject-description"
+                    name="description"
+                    maxlength="255"
+                    placeholder="Qué puedes enseñar en esta materia"
+                  />
+                </div>
+                <div class="field full">
+                  <div class="row">
+                    <button class="btn btn-secondary" type="submit" data-subject-submit>Agregar materia</button
+                    ><button class="btn btn-ghost" type="button" data-subject-cancel hidden>Cancelar edición</button>
+                  </div>
+                </div>
+              </form>
+              <div class="stack-sm" data-subject-list style="margin-top: 16px">
+                <p class="muted small">Cargando materias…</p>
+              </div>
+            </section>
+            <section class="card" data-blog-manager>
+              <div class="row-between">
+                <div>
+                  <h2>Blog del tutor</h2>
+                  <p class="muted small">Comparte contenido útil y edítalo o elimínalo cuando quieras.</p>
+                </div>
+                <span class="status info" data-blog-count>0 publicaciones</span>
+              </div>
+              <form class="stack" data-blog-form style="margin-top: 16px">
+                <input type="hidden" name="blogId" />
+                <div class="field">
+                  <label for="blog-title">Título</label
+                  ><input
+                    id="blog-title"
+                    name="title"
+                    minlength="3"
+                    maxlength="180"
+                    required
+                    placeholder="Cómo estudiar mejor cálculo"
+                  />
+                </div>
+                <div class="field">
+                  <label for="blog-content">Contenido</label
+                  ><textarea
+                    id="blog-content"
+                    name="content"
+                    minlength="20"
+                    maxlength="20000"
+                    required
+                    placeholder="Escribe una explicación, consejo o recurso para tus estudiantes..."
+                  ></textarea>
+                </div>
+                <div class="row">
+                  <button class="btn btn-primary" type="submit" data-blog-submit>Publicar artículo</button
+                  ><button class="btn btn-ghost" type="button" data-blog-cancel hidden>Cancelar edición</button>
+                </div>
+              </form>
+              <div class="stack-sm" data-blog-list style="margin-top: 18px">
+                <p class="muted small">Cargando publicaciones…</p>
+              </div>
+            </section>
+          </section>
+        </main>
+        <div class="modal public-profile-modal" data-public-profile-modal aria-hidden="true">
+          <div
+            class="modal-card public-profile-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="public-profile-title"
+          >
+            <div class="row-between">
+              <div>
+                <span class="eyebrow">Vista para estudiantes</span>
+                <h2 id="public-profile-title">Conoce a tu próximo tutor</h2>
+              </div>
+              <button class="icon-button" type="button" data-public-profile-close aria-label="Cerrar">×</button>
+            </div>
+            <div data-public-profile-content style="margin-top: 18px">
+              <p class="muted">Cargando tu vista pública…</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <nav class="mobile-nav">
+      <a href="dashboard-tutor.html"><span class="icon">⌂</span><span>Resumen</span></a
+      ><a href="radar-solicitudes.html"><span class="icon">⌁</span><span>Radar</span></a
+      ><a href="clases-impartidas.html"><span class="icon">◷</span><span>Mis clases</span></a
+      ><a href="disponibilidad.html"><span class="icon">▦</span><span>Disponibilidad</span></a
+      ><a class="active" href="mi-cuenta-tutor.html"><span class="icon">◎</span><span>Cuenta</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

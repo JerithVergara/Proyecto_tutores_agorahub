@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Aula virtual externa de una tutoría confirmada · ÁgoraHub" />
+    <title>Aula virtual · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Tutoría</div>
+          <nav class="side-nav" aria-label="Navegación del aula">
+            <a href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a
+            ><a href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a
+            ><a class="active" href="aula-virtual.html"><span class="icon">▣</span>Aula virtual</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="card soft-blue">
+          <strong class="small">Sesión virtual</strong>
+          <p class="muted small" style="margin: 6px 0 0">
+            La reunión se abre en una pestaña externa segura y puedes volver aquí cuando termines.
+          </p>
+        </div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Participante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="mis-tutorias.html" aria-label="Volver a mis tutorías">←</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-external-room>
+          <div class="eyebrow">Sesión · Aula virtual</div>
+          <div class="page-heading">
+            <div>
+              <h1>Aula virtual</h1>
+              <p class="lead">Entra a tu reunión externa y vuelve a esta página para cerrar la tutoría.</p>
+            </div>
+            <span class="status info" data-video-status>Preparando enlace…</span>
+          </div>
+          <section class="call-room external-call-room">
+            <div class="video-main external-meeting-card">
+              <div class="video-label">
+                <span>Reunión externa · Jitsi Meet</span
+                ><span class="status info" data-video-status>Generando enlace…</span>
+              </div>
+              <div class="external-meeting-content">
+                <span class="feature-icon">↗</span>
+                <h2>La reunión se abrirá en otra pestaña</h2>
+                <p class="muted">
+                  No se incrusta la videollamada dentro de ÁgoraHub. Usa el enlace externo para evitar límites de la
+                  vista previa y vuelve cuando termines.
+                </p>
+                <a
+                  class="btn btn-primary"
+                  data-external-meeting
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-disabled="true"
+                  >Entrar a la reunión ↗</a
+                >
+                <p class="hint" data-meeting-room>Preparando sala privada…</p>
+              </div>
+            </div>
+            <aside class="room-sidebar">
+              <div class="row-between">
+                <h3>Información de la sesión</h3>
+                <span class="subtle small">Privada</span>
+              </div>
+              <div class="stack-sm" style="margin-top: 18px">
+                <p class="muted small">
+                  La sala usa un enlace único basado en el ID de esta tutoría y solo se entrega a sus participantes
+                  autenticados.
+                </p>
+                <div class="card soft-lavender student-call-reminder" data-student-call-reminder hidden>
+                  <strong class="small">Al volver de la llamada</strong>
+                  <p class="muted small" style="margin: 6px 0 0">
+                    Pulsa «Terminé la tutoría» para dejarla pendiente de reseña.
+                  </p>
+                </div>
+                <button class="btn btn-success btn-block" type="button" data-finish-session>
+                  Terminé la tutoría · dejar reseña</button
+                ><button class="btn btn-danger btn-block" type="button" data-cancel-session>Cancelar tutoría</button
+                ><a class="btn btn-secondary btn-block" href="mis-tutorias.html">Volver a mis tutorías</a>
+              </div>
+            </aside>
+          </section>
+          <div class="card" style="margin-top: 18px">
+            <div class="row-between">
+              <div>
+                <h2>Estado de la tutoría</h2>
+                <p class="muted small" data-session-lifecycle>La sesión está lista para comenzar.</p>
+              </div>
+              <span class="tag">Sesión online</span>
+            </div>
+          </div>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a href="dashboard-estudiante.html"><span class="icon">⌂</span><span>Inicio</span></a
+      ><a href="mis-tutorias.html"><span class="icon">◷</span><span>Mis tutorías</span></a
+      ><a class="active" href="aula-virtual.html"><span class="icon">▣</span><span>Aula</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

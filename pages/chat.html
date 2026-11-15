@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Chat seguro entre estudiantes y tutores · ÁgoraHub" />
+    <title>Chat · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label"></div>
+          <nav class="side-nav" aria-label="Navegación principal"></nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span data-chat-user-role>Usuario</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Mensajería directa</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-chat-page>
+          <div class="eyebrow">Comunicación · Chat</div>
+          <div class="page-heading">
+            <div>
+              <h1>Chat</h1>
+              <p class="lead">Coordina tu tutoría con mensajes directos y persistentes.</p>
+            </div>
+          </div>
+          <section class="chat-layout">
+            <aside class="card chat-conversations">
+              <h2>Conversaciones</h2>
+              <div data-chat-conversations><p class="muted small">Cargando conversaciones…</p></div>
+            </aside>
+            <section class="card chat-panel">
+              <div class="chat-panel-header">
+                <div>
+                  <h2 data-chat-title>Selecciona una conversación</h2>
+                  <p class="muted small" data-chat-status>Los mensajes se guardan en tu cuenta.</p>
+                </div>
+              </div>
+              <div class="chat chat-panel-messages" data-chat-messages>
+                <p class="muted small">Selecciona una conversación para ver los mensajes.</p>
+              </div>
+              <form class="room-input chat-composer" data-chat-form>
+                <input
+                  name="body"
+                  maxlength="2000"
+                  placeholder="Escribe un mensaje…"
+                  autocomplete="off"
+                  disabled
+                  required
+                /><button class="btn btn-primary" type="submit" disabled>Enviar</button>
+              </form>
+            </section>
+          </section>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil"></nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

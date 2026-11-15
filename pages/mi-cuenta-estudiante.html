@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mi cuenta de estudiante · ÁgoraHub" />
+    <title>Mi cuenta · Estudiante · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir al inicio"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Estudiante</div>
+          <nav class="side-nav">
+            <a href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a
+            ><a href="buscar-tutores.html"><span class="icon">⌕</span>Buscar tutores</a
+            ><a href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a
+            ><a href="asistente-ia.html"><span class="icon">✦</span>Asistente IA</a
+            ><a class="active" href="mi-cuenta-estudiante.html"><span class="icon">◎</span>Mi cuenta</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Estudiante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="asistente-ia.html" aria-label="Abrir Asistente IA">✦</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-account-page="student">
+          <div class="eyebrow">Cuenta · Estudiante</div>
+          <div class="page-heading">
+            <div>
+              <h1>Mi cuenta</h1>
+              <p class="lead">Consulta y actualiza la información que registraste.</p>
+            </div>
+            <a class="btn btn-secondary" href="dashboard-estudiante.html">← Volver al inicio</a>
+          </div>
+          <div class="grid grid-sidebar">
+            <section class="card">
+              <div class="row">
+                <span class="avatar lg" data-user-initials>••</span>
+                <div>
+                  <h2 data-user-name>Cargando…</h2>
+                  <p class="muted small" data-user-email>Consultando correo…</p>
+                  <span class="status success">Cuenta activa</span>
+                </div>
+              </div>
+              <div class="avatar-upload" data-avatar-upload>
+                <label class="avatar-upload-label" for="account-student-avatar">Foto de perfil</label>
+                <div class="row">
+                  <input
+                    id="account-student-avatar"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    data-avatar-input
+                  /><button class="btn btn-ghost btn-sm" type="button" data-avatar-remove>Eliminar foto</button>
+                </div>
+                <span class="hint">JPG, PNG o WebP · máximo 300 KB · se optimiza a 400 × 400 px.</span>
+                <p class="hint" data-avatar-feedback></p>
+              </div>
+              <hr class="divider" />
+              <form class="stack" data-account-form>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="account-student-name">Nombre completo</label
+                    ><input
+                      id="account-student-name"
+                      name="fullName"
+                      type="text"
+                      pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü ]{2,120}"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="account-student-phone">Celular</label
+                    ><input
+                      id="account-student-phone"
+                      name="phone"
+                      type="tel"
+                      inputmode="tel"
+                      pattern="[+0-9 ()-]{7,30}"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="account-student-email">Correo electrónico</label
+                    ><input id="account-student-email" type="email" readonly />
+                  </div>
+                  <div class="field">
+                    <label for="account-student-level">Nivel educativo</label
+                    ><select id="account-student-level" name="educationLevel">
+                      <option>Universidad</option>
+                      <option>Bachillerato</option>
+                      <option>Formación técnica</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="account-student-goal">Meta principal</label
+                    ><textarea
+                      id="account-student-goal"
+                      name="learningGoal"
+                      minlength="2"
+                      maxlength="160"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+              </form>
+            </section>
+            <aside class="stack">
+              <section class="card soft-blue">
+                <span class="tag">Tu espacio</span>
+                <h2 style="margin-top: 12px">Tus datos se guardan en tu cuenta real.</h2>
+                <p class="muted">
+                  Desde aquí podrás mantener actualizado tu nivel y objetivo para recibir mejores coincidencias.
+                </p>
+              </section>
+              <section class="card">
+                <h2>¿Quieres enseñar?</h2>
+                <p class="muted small">Puedes crear una cuenta de profesor independiente desde este mismo proyecto.</p>
+                <a class="btn btn-secondary btn-block" href="registro-tutor.html">Crear cuenta de profesor</a>
+              </section>
+            </aside>
+          </div>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav">
+      <a href="dashboard-estudiante.html"><span class="icon">⌂</span><span>Inicio</span></a
+      ><a href="buscar-tutores.html"><span class="icon">⌕</span><span>Buscar</span></a
+      ><a href="mis-tutorias.html"><span class="icon">◷</span><span>Mis</span></a
+      ><a href="asistente-ia.html"><span class="icon">✦</span><span>Asistente</span></a
+      ><a class="active" href="mi-cuenta-estudiante.html"><span class="icon">◎</span><span>Cuenta</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

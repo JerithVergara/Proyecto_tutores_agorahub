@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Solicitud de tutoría · ÁgoraHub" />
+    <title>Solicitud de tutoría · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Estudiante</div>
+          <nav class="side-nav" aria-label="Navegación principal">
+            <a href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a
+            ><a href="buscar-tutores.html"><span class="icon">⌕</span>Buscar tutores</a
+            ><a class="active" href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a
+            ><a href="asistente-ia.html"><span class="icon">✦</span>Asistente IA</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar">AH</span>
+          <div><strong>Mi cuenta</strong><span>Estudiante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="mis-tutorias.html" aria-label="Volver a mis tutorías">←</a
+            ><a class="icon-button" href="../index.html" data-logout aria-label="Cerrar sesión">↗</a
+            ><span class="avatar">AH</span>
+          </div>
+        </header>
+        <main class="page" data-request-view>
+          <div class="eyebrow">Tu aprendizaje · Solicitud</div>
+          <div class="page-heading">
+            <div>
+              <h1>Solicitud de tutoría</h1>
+              <p class="lead" data-request-status>Consultando el estado de tu solicitud…</p>
+            </div>
+            <a class="btn btn-secondary" href="mis-tutorias.html">← Mis tutorías</a>
+          </div>
+          <div data-request-content>
+            <div class="card soft-blue" style="text-align: center; padding: 42px 24px">
+              <p class="muted" style="margin: 0">Cargando información…</p>
+            </div>
+          </div>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a href="dashboard-estudiante.html"><span class="icon">⌂</span><span>Inicio</span></a
+      ><a href="buscar-tutores.html"><span class="icon">⌕</span><span>Buscar</span></a
+      ><a class="active" href="mis-tutorias.html"><span class="icon">◷</span><span>Mis</span></a
+      ><a href="asistente-ia.html"><span class="icon">✦</span><span>Asistente</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

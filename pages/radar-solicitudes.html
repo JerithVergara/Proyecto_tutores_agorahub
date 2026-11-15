@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Radar de solicitudes · ÁgoraHub" />
+    <title>Radar de solicitudes · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Tutor</div>
+          <nav class="side-nav" aria-label="Navegación principal">
+            <a class="" href="dashboard-tutor.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10Z" /></svg></span
+              >Resumen</a
+            ><a class="active" href="radar-solicitudes.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8" />
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 4V2M20 12h2M12 20v2M4 12H2" /></svg></span
+              >Radar de solicitudes</a
+            ><a class="" href="clases-impartidas.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8.5" />
+                  <path d="M12 7v5l3 2" /></svg></span
+              >Mis clases</a
+            ><a class="" href="disponibilidad.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4.5" width="18" height="16" rx="2" />
+                  <path d="M7 2.5v4M17 2.5v4M3 9h18M7 13h.01M12 13h.01M17 13h.01M7 17h.01M12 17h.01" /></svg></span
+              >Disponibilidad</a
+            ><a href="chat.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 5.5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 3v-3.2a2 2 0 0 1-2-1.8v-8a2 2 0 0 1 2-2Z" />
+                  <path d="M8 11.5h.01M12 11.5h.01M16 11.5h.01" /></svg></span
+              >Chat</a
+            ><a href="mi-cuenta-tutor.html"
+              ><span class="icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3.5" />
+                  <path d="M5 20c.8-3.2 3.1-5 7-5s6.2 1.8 7 5" /></svg></span
+              >Mi cuenta</a
+            >
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar purple" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Profesor</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              >
+            </span>
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="radar-solicitudes.html" aria-label="Ver solicitudes">♢</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar purple" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-tutor-radar>
+          <div class="eyebrow">Oportunidades · Radar</div>
+          <div class="page-heading">
+            <div>
+              <h1>Radar de solicitudes</h1>
+              <p class="lead">Encuentra oportunidades de tutoría que coincidan con lo que sabes hacer.</p>
+            </div>
+            <a class="btn btn-primary" href="mi-cuenta-tutor.html">Mejorar mi perfil</a>
+          </div>
+          <div class="filter-bar">
+            <span class="small" style="font-weight: 700">Buscar oportunidades</span
+            ><select data-radar-filter="subject" aria-label="Materia">
+              <option value="all">Materia: Todas</option></select
+            ><select data-radar-filter="modality" aria-label="Modalidad">
+              <option value="all">Modalidad: Todas</option>
+              <option value="online">Virtual</option>
+              <option value="in_person">Presencial</option></select
+            ><select data-radar-filter="level" aria-label="Nivel">
+              <option value="all">Nivel: Todos</option></select
+            ><select data-radar-filter="rate" aria-label="Tarifa">
+              <option value="0">Tarifa: Cualquiera</option>
+              <option value="10">$10 o más / hora</option>
+              <option value="20">$20 o más / hora</option>
+              <option value="30">$30 o más / hora</option>
+              <option value="40">$40 o más / hora</option></select
+            ><span class="tag" style="margin-left: auto" data-radar-count>0 activas</span>
+          </div>
+          <div data-radar-list>
+            <div class="card soft-blue" style="text-align: center; padding: 54px 24px">
+              <span class="feature-icon" style="margin: 0 auto 16px">⌁</span>
+              <h2>No hay solicitudes nuevas</h2>
+              <p class="muted" style="max-width: 500px; margin: 0 auto 20px">
+                Las solicitudes compatibles con tus materias, tarifa y disponibilidad aparecerán aquí. Mientras tanto,
+                completa tu perfil y configura tus horarios para estar listo.
+              </p>
+              <div class="row" style="justify-content: center">
+                <a class="btn btn-primary" href="mi-cuenta-tutor.html">Completar perfil</a
+                ><a class="btn btn-secondary" href="disponibilidad.html">Configurar disponibilidad</a>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a class="" href="dashboard-tutor.html"><span class="icon">⌂</span><span>Resumen</span></a
+      ><a class="active" href="radar-solicitudes.html"><span class="icon">⌁</span><span>Radar</span></a
+      ><a class="" href="clases-impartidas.html"><span class="icon">◷</span><span>Mis</span></a
+      ><a class="" href="disponibilidad.html"><span class="icon">▦</span><span>Disponibilidad</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

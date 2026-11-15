@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Dashboard del estudiante · ÁgoraHub" />
+    <title>Dashboard del estudiante · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Estudiante</div>
+          <nav class="side-nav" aria-label="Navegación principal">
+            <a class="active" href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a
+            ><a class="" href="buscar-tutores.html"><span class="icon">⌕</span>Buscar tutores</a
+            ><a class="" href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a
+            ><a class="" href="asistente-ia.html"><span class="icon">✦</span>Asistente IA</a
+            ><a href="mi-cuenta-estudiante.html"><span class="icon">◎</span>Mi cuenta</a
+            ><a href="chat.html"><span class="icon">◌</span>Chat</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Estudiante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              >
+            </span>
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="mis-tutorias.html" aria-label="Ver mis tutorías">♢</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-student-dashboard>
+          <div class="eyebrow">Inicio · Estudiante</div>
+          <div class="page-heading">
+            <div>
+              <h1>Hola, <span data-current-user-name>tu cuenta</span>.</h1>
+              <p class="lead">Tu espacio para mantener el aprendizaje en movimiento.</p>
+            </div>
+            <div class="row">
+              <a class="btn btn-primary" href="buscar-tutores.html">Buscar un tutor <span>→</span></a>
+            </div>
+          </div>
+          <section class="stack">
+            <div class="welcome-card">
+              <div>
+                <span class="tag">Tu resumen de aprendizaje</span>
+                <h2 style="margin-top: 12px">Cada sesión suma a tu próxima meta.</h2>
+                <p class="muted" data-student-summary style="max-width: 510px; margin-bottom: 0">
+                  Consultando tus tutorías reales y tu progreso de aprendizaje.
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-4">
+              <div class="stat">
+                <div class="stat-label"><span>Horas aprendidas</span><span>◷</span></div>
+                <div class="stat-value" data-student-metric="totalHours">0 h</div>
+                <div class="stat-change" data-student-metric-note="totalHours">Consultando sesiones</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label"><span>Sesiones completadas</span><span>✓</span></div>
+                <div class="stat-value" data-student-metric="completedCount">0</div>
+                <div class="stat-change" data-student-metric-note="completedCount">Consultando tutorías</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label"><span>Racha actual</span><span>✦</span></div>
+                <div class="stat-value" data-student-metric="streakDays">0 días</div>
+                <div class="stat-change" data-student-metric-note="streakDays">Comienza tu primera meta</div>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <a class="quick-action" href="mis-tutorias.html"
+                ><span class="feature-icon">◷</span
+                ><span><strong>Mis tutorías</strong><span>Revisa tus sesiones</span></span></a
+              ><a class="quick-action" href="buscar-tutores.html"
+                ><span class="feature-icon">+</span
+                ><span><strong>Solicitar tutoría</strong><span>Empieza una nueva solicitud</span></span></a
+              ><a class="quick-action" href="asistente-ia.html"
+                ><span class="feature-icon">✦</span
+                ><span><strong>Asistente IA</strong><span>Resuelve una duda</span></span></a
+              >
+            </div>
+            <div class="grid grid-sidebar">
+              <section class="card soft-blue">
+                <div class="row-between">
+                  <div>
+                    <span class="tag">Aún no tienes sesiones</span>
+                    <h2 style="margin-top: 12px">Tu primera tutoría empieza con una solicitud.</h2>
+                    <p class="muted">
+                      Busca un tutor, revisa su perfil y envía los detalles de lo que necesitas. Nada se agenda hasta
+                      que tú lo solicites y confirmes.
+                    </p>
+                  </div>
+                  <a class="btn btn-primary" href="buscar-tutores.html">Buscar tutor →</a>
+                </div>
+              </section>
+              <section class="card soft-lavender">
+                <div class="row-between">
+                  <h2>¿Por qué ÁgoraHub?</h2>
+                  <span class="tag">Idea</span>
+                </div>
+                <p class="muted">
+                  Bienvenido a ÁgoraHub: Tu punto de encuentro para aprender.<br /><br />En la antigua Grecia, el Ágora
+                  era la plaza central donde las mentes más brillantes se reunían para debatir, enseñar y construir
+                  conocimiento. Hoy, traemos ese espíritu a lo digital: un espacio abierto donde conectas con los
+                  mejores tutores para resolver dudas y potenciar tu talento.
+                </p>
+              </section>
+            </div>
+            <div class="row-between">
+              <div>
+                <h2>Tu tutor disponible</h2>
+                <p class="muted small">El perfil activo para solicitar tu primera tutoría</p>
+              </div>
+              <a class="btn btn-ghost" href="perfil-tutor.html">Ver perfil</a>
+            </div>
+            <div class="grid grid-3">
+              <article class="card tutor-card" data-primary-tutor>
+                <div class="tutor-top">
+                  <div class="tutor-id">
+                    <span class="avatar">JS</span>
+                    <div><strong>Julián Salcedo</strong><span>Matemáticas y física · Universidad</span></div>
+                  </div>
+                  <span class="status success">Disponible</span>
+                </div>
+                <div class="row">
+                  <span class="status info">Nuevo perfil</span><span class="muted small">Sin reseñas todavía</span>
+                </div>
+                <div class="meta"><span>◉ Virtual y presencial</span><span>◷ Horario por confirmar</span></div>
+                <div class="row-between">
+                  <strong>$35.00<span class="muted small"> / hora</span></strong
+                  ><a class="btn btn-secondary btn-sm" href="perfil-tutor.html">Ver perfil</a>
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a class="active" href="dashboard-estudiante.html"><span class="icon">⌂</span><span>Inicio</span></a
+      ><a class="" href="buscar-tutores.html"><span class="icon">⌕</span><span>Buscar</span></a
+      ><a class="" href="mis-tutorias.html"><span class="icon">◷</span><span>Mis</span></a
+      ><a class="" href="asistente-ia.html"><span class="icon">✦</span><span>Asistente</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

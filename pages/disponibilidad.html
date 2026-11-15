@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Disponibilidad del profesor · ÁgoraHub" />
+    <title>Disponibilidad · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Profesor</div>
+          <nav class="side-nav">
+            <a href="dashboard-tutor.html"><span class="icon">⌂</span>Resumen</a>
+            <a href="radar-solicitudes.html"><span class="icon">⌁</span>Radar de solicitudes</a>
+            <a href="clases-impartidas.html"><span class="icon">◷</span>Mis clases</a>
+            <a class="active" href="disponibilidad.html"><span class="icon">▦</span>Disponibilidad</a>
+            <a href="mi-cuenta-tutor.html"><span class="icon">◎</span>Mi cuenta</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar purple" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Profesor</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="radar-solicitudes.html" aria-label="Ver solicitudes">⌁</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar purple" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-availability-page>
+          <div class="eyebrow">Tu oferta · Disponibilidad</div>
+          <div class="page-heading">
+            <div>
+              <h1>Organiza tu disponibilidad</h1>
+              <p class="lead">
+                Guarda los bloques en los que puedes enseñar para que las solicitudes se ajusten a tu agenda.
+              </p>
+            </div>
+            <a class="btn btn-secondary" href="mi-cuenta-tutor.html">Mi cuenta</a>
+          </div>
+          <div class="grid grid-sidebar">
+            <section class="card">
+              <div class="row-between">
+                <div>
+                  <h2>Agregar un bloque</h2>
+                  <p class="muted small">Cada bloque se guarda en tu perfil real.</p>
+                </div>
+                <span class="status info">Sin datos precargados</span>
+              </div>
+              <form class="stack" style="margin-top: 18px" data-availability-form>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="availability-day">Día</label
+                    ><select id="availability-day" name="dayOfWeek" required>
+                      <option value="1">Lunes</option>
+                      <option value="2">Martes</option>
+                      <option value="3">Miércoles</option>
+                      <option value="4">Jueves</option>
+                      <option value="5">Viernes</option>
+                      <option value="6">Sábado</option>
+                      <option value="0">Domingo</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="availability-mode">Modalidad</label
+                    ><select id="availability-mode" name="modality" required>
+                      <option value="both">Virtual y presencial</option>
+                      <option value="online">Virtual</option>
+                      <option value="in_person">Presencial</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="availability-start">Hora inicial</label
+                    ><input id="availability-start" name="startTime" type="time" required />
+                  </div>
+                  <div class="field">
+                    <label for="availability-end">Hora final</label
+                    ><input id="availability-end" name="endTime" type="time" required />
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Guardar bloque</button>
+              </form>
+            </section>
+            <aside class="card soft-blue">
+              <span class="tag">Tu agenda real</span>
+              <h2 style="margin-top: 12px">Los estudiantes solo verán tus bloques guardados.</h2>
+              <p class="muted">
+                No se crean clases ni reservas al configurar disponibilidad. Las sesiones aparecen después de que
+                aceptes una solicitud.
+              </p>
+            </aside>
+          </div>
+          <section class="card" style="margin-top: 24px">
+            <div class="row-between">
+              <div>
+                <h2>Bloques guardados</h2>
+                <p class="muted small">Disponibilidad consultada desde Supabase.</p>
+              </div>
+              <span class="status info" data-availability-count>0 bloques</span>
+            </div>
+            <div class="stack-sm" style="margin-top: 16px" data-availability-list>
+              <div class="card ghost" style="text-align: center; padding: 32px 16px">
+                <p class="muted">Cargando disponibilidad…</p>
+              </div>
+            </div>
+          </section>
+          <section class="card availability-calendar-card-shell" style="margin-top: 24px">
+            <div class="row-between">
+              <div>
+                <h2>Calendario semanal</h2>
+                <p class="muted small">Tus bloques y las tutorías ya asignadas.</p>
+              </div>
+              <div class="availability-calendar-controls">
+                <button class="btn btn-secondary btn-sm" type="button" data-calendar-prev aria-label="Semana anterior">
+                  ←
+                </button>
+                <button class="btn btn-secondary btn-sm" type="button" data-calendar-today>Hoy</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-calendar-next aria-label="Semana siguiente">
+                  →
+                </button>
+              </div>
+            </div>
+            <div class="availability-calendar-heading row-between">
+              <h3 data-calendar-title>Semana actual</h3>
+              <div class="availability-legend">
+                <span><i class="legend-dot available"></i>Disponible</span
+                ><span><i class="legend-dot occupied"></i>Clase asignada</span>
+              </div>
+            </div>
+            <div class="availability-calendar-scroll" data-availability-calendar>
+              <p class="muted small">Cargando calendario…</p>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav">
+      <a href="dashboard-tutor.html"><span class="icon">⌂</span><span>Resumen</span></a>
+      <a href="radar-solicitudes.html"><span class="icon">⌁</span><span>Radar</span></a>
+      <a href="clases-impartidas.html"><span class="icon">◷</span><span>Mis clases</span></a>
+      <a class="active" href="disponibilidad.html"><span class="icon">▦</span><span>Disponibilidad</span></a>
+      <a href="mi-cuenta-tutor.html"><span class="icon">◎</span><span>Cuenta</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Inicio de sesión seguro · ÁgoraHub" />
+    <title>Iniciar sesión · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="auth-page">
+      <section class="auth-side">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <h1>Tu próxima meta empieza aquí</h1>
+          <p>Ingresa a tu espacio de aprendizaje o de tutoría con tu correo y contraseña.</p>
+          <div class="auth-side-visual">
+            <span class="person-bubble">AH</span><span class="person-bubble purple">IA</span
+            ><span class="small muted">Aprendizaje que se adapta a ti</span>
+          </div>
+        </div>
+      </section>
+      <main class="auth-main">
+        <div class="auth-card">
+          <div class="brand">
+            <span class="brand-mark"><i></i></span
+            ><span
+              ><strong>Ágora<span>Hub</span></strong
+              ><small>Plataforma de tutorías</small></span
+            >
+          </div>
+          <span class="status success">Acceso seguro</span>
+          <h1 style="margin-top: 18px">Iniciar sesión</h1>
+          <p class="lead">Usa las credenciales de tu cuenta para continuar.</p>
+          <form class="stack" action="/api/auth/login" method="post" data-api-form="login">
+            <div class="field">
+              <label for="email">Correo electrónico</label
+              ><input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                maxlength="120"
+                placeholder="nombre@correo.com"
+              />
+            </div>
+            <div class="field">
+              <div class="row-between">
+                <label for="password">Contraseña</label><a class="small" href="#recuperar">¿Olvidaste tu contraseña?</a>
+              </div>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                minlength="8"
+                maxlength="72"
+                placeholder="Escribe tu contraseña"
+              />
+            </div>
+            <label class="checkbox"
+              ><input type="checkbox" name="remember" /> Mantener mi sesión iniciada en este dispositivo.</label
+            >
+            <button class="btn btn-primary btn-block" type="submit">Continuar →</button>
+          </form>
+          <section class="card soft-blue" style="margin-top: 22px" id="recuperar">
+            <strong class="small">¿Necesitas recuperar el acceso?</strong>
+            <p class="muted small" style="margin: 6px 0 12px">
+              Escribe tu correo y te enviaremos un enlace seguro para crear una contraseña nueva.
+            </p>
+            <form class="stack-sm" data-password-recovery>
+              <div class="field">
+                <label for="recovery-email">Correo de tu cuenta</label
+                ><input
+                  id="recovery-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  maxlength="160"
+                  required
+                  placeholder="nombre@correo.com"
+                />
+              </div>
+              <button class="btn btn-secondary" type="submit">Enviar enlace de recuperación</button>
+            </form>
+          </section>
+          <p class="auth-footer">
+            ¿Aún no tienes cuenta?
+            <a href="registro.html" style="color: var(--blue); font-weight: 700">Crear una cuenta</a>
+          </p>
+        </div>
+      </main>
+    </div>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

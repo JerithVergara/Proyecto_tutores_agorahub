@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Calificación y reseña · ÁgoraHub" />
+    <title>Calificación y reseña · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Estudiante</div>
+          <nav class="side-nav">
+            <a href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a
+            ><a href="buscar-tutores.html"><span class="icon">⌕</span>Buscar tutores</a
+            ><a class="active" href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a
+            ><a href="asistente-ia.html"><span class="icon">✦</span>Asistente IA</a
+            ><a href="mi-cuenta-estudiante.html"><span class="icon">◎</span>Mi cuenta</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Estudiante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="mis-tutorias.html">←</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-review-page>
+          <div class="eyebrow">Tu aprendizaje · Comunidad</div>
+          <div class="page-heading">
+            <div>
+              <h1>Comparte tu experiencia</h1>
+              <p class="lead">
+                Tu reseña ayuda a otros estudiantes a elegir un profesor y cierra formalmente esta tutoría.
+              </p>
+            </div>
+            <span class="status info" data-review-status>Consultando sesión…</span>
+          </div>
+          <div data-review-content>
+            <div class="card soft-blue" style="text-align: center; padding: 58px 24px">
+              <span class="feature-icon" style="margin: 0 auto 16px">✦</span>
+              <h2>Cargando la tutoría</h2>
+              <p class="muted">Estamos comprobando que la sesión esté pendiente de reseña.</p>
+            </div>
+          </div>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav">
+      <a href="dashboard-estudiante.html"><span class="icon">⌂</span><span>Inicio</span></a
+      ><a href="buscar-tutores.html"><span class="icon">⌕</span><span>Buscar</span></a
+      ><a class="active" href="mis-tutorias.html"><span class="icon">◷</span><span>Mis</span></a
+      ><a href="asistente-ia.html"><span class="icon">✦</span><span>Asistente</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

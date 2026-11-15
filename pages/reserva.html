@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Reserva y negociación inicial · ÁgoraHub" />
+    <title>Reserva y negociación inicial · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Estudiante</div>
+          <nav class="side-nav" aria-label="Navegación principal">
+            <a class="" href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a
+            ><a class="" href="buscar-tutores.html"><span class="icon">⌕</span>Buscar tutores</a
+            ><a class="" href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a
+            ><a class="" href="asistente-ia.html"><span class="icon">✦</span>Asistente IA</a
+            ><a href="mi-cuenta-estudiante.html"><span class="icon">◎</span>Mi cuenta</a
+            ><a href="chat.html"><span class="icon">◌</span>Chat</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Estudiante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              >
+            </span>
+            <div class="search-top">
+              <span>⌕</span><input type="search" placeholder="Buscar en ÁgoraHub" aria-label="Buscar" />
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="mis-tutorias.html" aria-label="Ver mis tutorías">♢</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-reservation-page>
+          <div class="eyebrow">Reservar · Nueva solicitud</div>
+          <div class="page-heading">
+            <div>
+              <h1>Cuéntale qué necesitas</h1>
+              <p class="lead">Estos detalles ayudan a tu tutor a preparar una propuesta que tenga sentido para ti.</p>
+            </div>
+            <a class="btn btn-secondary" href="perfil-tutor.html">← Ver perfil</a>
+          </div>
+          <div class="grid grid-sidebar">
+            <section class="card">
+              <div class="row-between">
+                <div>
+                  <h2>Solicitar una tutoría</h2>
+                  <p class="muted small">
+                    Con <span data-reservation-tutor-name>el tutor seleccionado</span> ·
+                    <span data-reservation-tutor-title>perfil profesional</span>
+                  </p>
+                </div>
+                <span class="status info">Paso 1 de 2</span>
+              </div>
+              <form class="stack" style="margin-top: 20px" action="/api/requests" method="post" data-api-form="request">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="subject">Materia</label
+                    ><select id="subject" name="subjectId" required>
+                      <option value="1">Matemáticas</option>
+                      <option value="2">Física</option>
+                      <option value="6">Cálculo</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="level">Nivel</label
+                    ><select id="level" name="educationLevelId" required>
+                      <option value="2">Universidad</option>
+                      <option value="1">Bachillerato</option>
+                      <option value="3">Formación técnica</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="goal">¿Cuál es tu objetivo?</label
+                    ><textarea
+                      id="goal"
+                      name="objective"
+                      minlength="20"
+                      maxlength="1000"
+                      required
+                      placeholder="Ej: Necesito prepararme para el parcial de derivadas..."
+                    ></textarea>
+                  </div>
+                  <div class="field full">
+                    <label for="availability-block">Bloque de disponibilidad del profesor</label
+                    ><select id="availability-block" name="availabilityId" data-availability-select required>
+                      <option value="">Cargando bloques…</option></select
+                    ><span class="hint"
+                      >Solo podrás elegir fechas que correspondan al día del bloque seleccionado.</span
+                    >
+                  </div>
+                  <div class="field">
+                    <label for="date">Fecha de la tutoría</label
+                    ><input id="date" name="preferredDate" type="date" data-reservation-date required disabled />
+                  </div>
+                  <div class="field">
+                    <label for="time">Hora de inicio</label
+                    ><select id="time" name="preferredTime" data-reservation-time required disabled>
+                      <option value="">Selecciona primero un bloque</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="duration">Cantidad de horas</label
+                    ><select id="duration" name="durationHours" data-reservation-duration required disabled>
+                      <option value="">Selecciona primero un bloque</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="budget">Presupuesto por hora (USD)</label
+                    ><input
+                      id="budget"
+                      name="budgetPerHour"
+                      data-reservation-budget
+                      type="number"
+                      inputmode="decimal"
+                      min="0"
+                      max="1000000"
+                      step="0.01"
+                      placeholder="35.00"
+                      required
+                      disabled
+                    /><span class="hint">Puedes ajustar la tarifa propuesta por el tutor.</span>
+                  </div>
+                  <div class="field full">
+                    <div class="card soft-blue reservation-total">
+                      <span class="muted small">Total estimado</span><strong data-reservation-total>$0.00 USD</strong>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="mode">Modalidad</label
+                    ><select id="mode" name="modality" required>
+                      <option value="online">Virtual</option>
+                      <option value="in_person">Presencial</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row-between">
+                  <span class="hint">El tutor podrá aceptar o enviarte una contraoferta.</span
+                  ><button class="btn btn-primary" type="submit">Enviar solicitud →</button>
+                </div>
+              </form>
+            </section>
+            <aside class="stack">
+              <section class="card soft-blue">
+                <span class="tag">Tu solicitud</span>
+                <h2 style="margin-top: 12px">Un buen contexto hace la diferencia.</h2>
+                <p class="muted">Cuéntale al tutor qué tema quieres trabajar y qué resultado esperas obtener.</p>
+                <div class="row">
+                  <span class="avatar">JS</span>
+                  <div>
+                    <strong data-reservation-tutor-name>Tutor seleccionado</strong
+                    ><span class="muted small" data-reservation-tutor-title>Perfil profesional</span>
+                  </div>
+                </div>
+              </section>
+              <section class="card">
+                <h3>Cómo funciona</h3>
+                <div class="list">
+                  <div class="list-item">
+                    <span class="status info">1</span
+                    ><span class="muted small" style="flex: 1">Envías tu solicitud</span>
+                  </div>
+                  <div class="list-item">
+                    <span class="status info">2</span><span class="muted small" style="flex: 1">El tutor responde</span>
+                  </div>
+                  <div class="list-item">
+                    <span class="status success">3</span
+                    ><span class="muted small" style="flex: 1">Confirmas la sesión</span>
+                  </div>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a class="" href="dashboard-estudiante.html"><span class="icon">⌂</span><span>Inicio</span></a
+      ><a class="" href="buscar-tutores.html"><span class="icon">⌕</span><span>Buscar</span></a
+      ><a class="" href="mis-tutorias.html"><span class="icon">◷</span><span>Mis</span></a
+      ><a class="" href="asistente-ia.html"><span class="icon">✦</span><span>Asistente</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

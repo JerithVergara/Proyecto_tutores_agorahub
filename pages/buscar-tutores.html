@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Buscar tutores registrados en ÁgoraHub" />
+    <title>Buscar tutores · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Estudiante</div>
+          <nav class="side-nav" aria-label="Navegación principal">
+            <a href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a>
+            <a class="active" href="buscar-tutores.html" aria-current="page"
+              ><span class="icon">⌕</span>Buscar tutores</a
+            >
+            <a href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a>
+            <a href="asistente-ia.html"><span class="icon">✦</span>Asistente IA</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Estudiante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="mis-tutorias.html" aria-label="Ver mis tutorías">♢</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-tutor-search>
+          <div class="eyebrow">Explorar · Tutores</div>
+          <div class="page-heading">
+            <div>
+              <h1>Encuentra a tu tutor ideal</h1>
+              <p class="lead">Compara tutores registrados y filtra por lo que necesitas aprender.</p>
+            </div>
+          </div>
+          <form class="card tutor-search-filters" data-tutor-filters>
+            <div class="form-grid">
+              <div class="field">
+                <label for="tutor-filter-subject">Materia o área de conocimiento</label
+                ><select id="tutor-filter-subject" name="subject">
+                  <option value="">Todas las materias</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="tutor-filter-level">Nivel educativo</label
+                ><select id="tutor-filter-level" name="educationLevel">
+                  <option value="">Todos los niveles</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="tutor-filter-modality">Modalidad</label
+                ><select id="tutor-filter-modality" name="modality">
+                  <option value="">Cualquier modalidad</option>
+                  <option value="online">Virtual</option>
+                  <option value="in_person">Presencial</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="tutor-filter-area">Ubicación o área geográfica</label
+                ><input
+                  id="tutor-filter-area"
+                  name="area"
+                  type="search"
+                  list="tutor-filter-areas"
+                  maxlength="160"
+                  placeholder="Ciudad o zona"
+                /><datalist id="tutor-filter-areas"></datalist>
+              </div>
+              <div class="field">
+                <label for="tutor-filter-min-rate">Tarifa mínima por hora (USD)</label
+                ><input
+                  id="tutor-filter-min-rate"
+                  name="minRate"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  inputmode="decimal"
+                />
+              </div>
+              <div class="field">
+                <label for="tutor-filter-max-rate">Tarifa máxima por hora (USD)</label
+                ><input
+                  id="tutor-filter-max-rate"
+                  name="maxRate"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  inputmode="decimal"
+                />
+              </div>
+              <div class="field">
+                <label for="tutor-filter-day">Día disponible</label
+                ><select id="tutor-filter-day" name="availabilityDay">
+                  <option value="">Cualquier día</option>
+                  <option value="0">Domingo</option>
+                  <option value="1">Lunes</option>
+                  <option value="2">Martes</option>
+                  <option value="3">Miércoles</option>
+                  <option value="4">Jueves</option>
+                  <option value="5">Viernes</option>
+                  <option value="6">Sábado</option>
+                </select>
+              </div>
+            </div>
+            <div class="row-between" style="margin-top: 16px">
+              <span class="status info" data-tutor-count>Consultando tutores…</span
+              ><button class="btn btn-ghost btn-sm" type="reset">Restablecer filtros</button>
+            </div>
+          </form>
+          <section class="grid grid-3" data-tutor-list aria-live="polite" style="margin-top: 18px">
+            <div class="card" style="grid-column: 1/-1; text-align: center; padding: 42px 24px">
+              <p class="muted">Consultando tutores registrados…</p>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil"></nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>

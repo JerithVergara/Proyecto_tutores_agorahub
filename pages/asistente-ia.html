@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Asistente IA para estudiantes y tutores · ÁgoraHub" />
+    <title>Asistente IA · ÁgoraHub</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="Ir a la página principal"
+          ><span class="brand-mark"><i></i></span
+          ><span
+            ><strong>Ágora<span>Hub</span></strong
+            ><small>Plataforma de tutorías</small></span
+          ></a
+        >
+        <div>
+          <div class="sidebar-label">Estudiante</div>
+          <nav class="side-nav" aria-label="Navegación principal">
+            <a href="dashboard-estudiante.html"><span class="icon">⌂</span>Inicio</a
+            ><a href="buscar-tutores.html"><span class="icon">⌕</span>Buscar tutores</a
+            ><a href="mis-tutorias.html"><span class="icon">◷</span>Mis tutorías</a
+            ><a class="active" href="asistente-ia.html"><span class="icon">✦</span>Asistente IA</a
+            ><a href="mi-cuenta-estudiante.html"><span class="icon">◎</span>Mi cuenta</a>
+          </nav>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="user-mini">
+          <span class="avatar" data-user-initials>••</span>
+          <div><strong data-user-name>Mi cuenta</strong><span>Estudiante</span></div>
+        </div>
+      </aside>
+      <section class="app-main">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <span class="brand"
+              ><span class="brand-mark"><i></i></span
+              ><span
+                ><strong>Ágora<span>Hub</span></strong
+                ><small>Plataforma de tutorías</small></span
+              ></span
+            >
+          </div>
+          <div class="topbar-actions">
+            <a class="icon-button" href="dashboard-estudiante.html" data-role-home aria-label="Ir al inicio">♢</a
+            ><a class="btn btn-secondary btn-sm" href="../index.html" data-logout>Cerrar sesión</a
+            ><span class="avatar" data-user-initials>••</span>
+          </div>
+        </header>
+        <main class="page" data-ai-chat>
+          <div class="eyebrow">Aprender · Asistente IA</div>
+          <div class="page-heading">
+            <div>
+              <h1>Asistente IA</h1>
+              <p class="lead">
+                Una ayuda para comprender conceptos, organizar tu estudio y preparar mejor tus sesiones de aprendizaje.
+              </p>
+            </div>
+            <div class="row">
+              <span class="status info">Disponible por API</span
+              ><a class="btn btn-secondary" href="dashboard-estudiante.html" data-role-home>← Dashboard</a>
+            </div>
+          </div>
+          <div class="grid grid-sidebar">
+            <section class="card" style="min-height: 520px; display: flex; flex-direction: column">
+              <div class="row-between">
+                <div class="row">
+                  <span
+                    class="feature-icon"
+                    style="margin: 0; background: var(--lavender); color: var(--lavender-strong)"
+                    >✦</span
+                  >
+                  <div>
+                    <h2 style="margin: 0">Asistente IA</h2>
+                    <span class="muted small">Asistente educativo conectado por API</span>
+                  </div>
+                </div>
+                <span class="status info" data-ai-status>Cargando conversación…</span>
+              </div>
+              <div class="chat" data-ai-messages style="margin-top: 26px; min-height: 230px">
+                <p class="muted small">Cargando tu conversación…</p>
+              </div>
+              <div style="margin-top: auto; padding-top: 25px">
+                <div class="row">
+                  <button class="tag" type="button" data-ai-prompt="Crear un resumen de este tema: ">Resumen</button
+                  ><button class="tag" type="button" data-ai-prompt="Ayúdame a crear un plan de estudio para: ">
+                    Plan de estudio</button
+                  ><button class="tag" type="button" data-ai-prompt="Explícame con un ejemplo sencillo: ">
+                    Explicarme un tema
+                  </button>
+                </div>
+                <form class="row" style="margin-top: 11px" data-ai-form>
+                  <input
+                    data-ai-input
+                    required
+                    maxlength="5000"
+                    placeholder="Escribe tu pregunta…"
+                    aria-label="Pregunta para el Asistente IA"
+                  /><button class="btn btn-primary" type="submit">Enviar ↑</button>
+                </form>
+              </div>
+            </section>
+            <aside class="stack">
+              <section class="card soft-lavender">
+                <h2>Ideas para comenzar</h2>
+                <p class="muted small">
+                  Puedes pedir una explicación paso a paso, un resumen de tus apuntes o preguntas para conversar con tu
+                  tutor.
+                </p>
+                <div class="stack-sm" style="margin-top: 15px">
+                  <button
+                    class="btn btn-secondary btn-block"
+                    type="button"
+                    data-ai-prompt="Explícame este concepto paso a paso: "
+                  >
+                    Explicar un concepto</button
+                  ><button
+                    class="btn btn-secondary btn-block"
+                    type="button"
+                    data-ai-prompt="Crea un plan de estudio para esta semana sobre: "
+                  >
+                    Armar un plan</button
+                  ><button
+                    class="btn btn-secondary btn-block"
+                    type="button"
+                    data-ai-prompt="Ayúdame a preparar preguntas para mi tutor sobre: "
+                  >
+                    Preparar preguntas
+                  </button>
+                </div>
+              </section>
+              <section class="card">
+                <h2>Privacidad</h2>
+                <p class="muted small">
+                  Tus mensajes se guardan en tu conversación para mantener el contexto. No compartas contraseñas ni
+                  datos sensibles.
+                </p>
+              </section>
+            </aside>
+          </div>
+        </main>
+      </section>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a href="dashboard-estudiante.html"><span class="icon">⌂</span><span>Inicio</span></a
+      ><a href="buscar-tutores.html"><span class="icon">⌕</span><span>Buscar</span></a
+      ><a href="mis-tutorias.html"><span class="icon">◷</span><span>Mis</span></a
+      ><a class="active" href="asistente-ia.html"><span class="icon">✦</span><span>Asistente</span></a>
+    </nav>
+    <script src="../public/app.js" defer></script>
+  </body>
+</html>
